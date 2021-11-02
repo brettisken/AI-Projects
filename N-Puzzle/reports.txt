@@ -1,0 +1,375 @@
+Reports
+--------------------------------------7.1--------------------------------------
+
+-------------IDS - (print-solution (IDS *PUZZLE-0* *goal*))-------------
+
+  seconds  |     gc     |  consed | calls |  sec/call  |  name  
+-----------------------------------------------------
+     0.014 |      0.000 | 131,024 | 1,235 |   0.000011 | COPY-ARRAY
+     0.000 |      0.000 |       0 |     1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |       0 |     1 |   0.000000 | IDS
+     0.000 |      0.000 |       0 |     6 |   0.000000 | DLS
+     0.000 |      0.000 |       0 | 1,235 |   0.000000 | RESULT
+     0.000 |      0.000 | 131,056 |   431 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |       0 | 1,241 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |       0 |   431 |   0.000000 | EXPAND
+-----------------------------------------------------
+     0.014 |      0.000 | 262,080 | 4,581 |            | Total
+
+estimated total profiling overhead: 0.02 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+  
+
+-------------BFS - (print-solution (BFS *PUZZLE-0* *goal*))-------------
+
+  seconds  |     gc     |  consed | calls |  sec/call  |  name  
+-----------------------------------------------------
+     0.000 |      0.000 |       0 |     1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 | 588,656 |     1 |   0.000000 | BFS
+     0.000 |      0.000 |       0 |   146 |   0.000000 | RESULT
+     0.000 |      0.000 |       0 |    51 |   0.000000 | DEQUEUE
+     0.000 |      0.000 |       0 |    94 |   0.000000 | ENQUEUE
+     0.000 |      0.000 |       0 |     1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.000 |       0 |    51 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |       0 |   147 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |       0 |    51 |   0.000000 | EXPAND
+     0.000 |      0.000 |  65,504 |   146 |   0.000000 | COPY-ARRAY
+-----------------------------------------------------
+     0.000 |      0.000 | 654,160 |   689 |            | Total
+
+estimated total profiling overhead: 0.00 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+  
+  
+-------------A* - (print-solution (A* *PUZZLE-0* *goal* #'manhattan-distance))-------------
+
+  seconds  |     gc     |  consed | calls |  sec/call  |  name  
+-----------------------------------------------------
+     0.000 |      0.000 |       0 |     8 |   0.000000 | POP-HEAP
+     0.000 |      0.000 |       0 |    21 |   0.000000 | MANHATTAN-DISTANCE
+     0.000 |      0.000 |       0 |     1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |       0 |     1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 |       0 |    21 |   0.000000 | RESULT
+     0.000 |      0.000 |  65,232 |     1 |   0.000000 | A*
+     0.000 |      0.000 |       0 |    16 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |       0 |    16 |   0.000000 | REHEAP-UP
+     0.000 |      0.000 |       0 |     7 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |       0 |    22 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |       0 |    72 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |       0 |    48 |   0.000000 | PARENT
+     0.000 |      0.000 |       0 |     7 |   0.000000 | EXPAND
+     0.000 |      0.000 |  65,520 |    21 |   0.000000 | COPY-ARRAY
+-----------------------------------------------------
+     0.000 |      0.000 | 130,752 |   262 |            | Total
+
+estimated total profiling overhead: 0.00 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+
+--------------------------------------7.2--------------------------------------
+				  
+-------------A* - (print-solution (A* *PUZZLE-2* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed  |  calls |  sec/call  |  name  
+--------------------------------------------------------
+     0.014 |      0.000 |   327,656 |  1,127 |   0.000013 | MANHATTAN-DISTANCE
+     0.013 |      0.000 |         0 |  1,128 |   0.000012 | MAKE-NODE
+     0.010 |      0.000 |         0 |  3,996 |   0.000002 | PARENT
+     0.003 |      0.000 |         0 |    673 |   0.000005 | PUSH-HEAP
+     0.001 |      0.000 |         0 |  9,022 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |         0 |    418 |   0.000000 | POP-HEAP
+     0.000 |      0.000 |         0 |      1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |         0 |      1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 |         0 |  1,127 |   0.000000 | RESULT
+     0.000 |      0.000 | 4,965,728 |      1 |   0.000000 | A*
+     0.000 |      0.000 |         0 |    673 |   0.000000 | REHEAP-UP
+     0.000 |      0.000 |    65,528 |    417 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |         0 |    417 |   0.000000 | EXPAND
+     0.000 |      0.000 |         0 |  1,127 |   0.000000 | COPY-ARRAY
+--------------------------------------------------------
+     0.042 |      0.000 | 5,358,912 | 20,128 |            | Total
+
+estimated total profiling overhead: 0.07 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------A* - (print-solution (A* *PUZZLE-2* *goal* #'misplaced-tiles))-------------
+  seconds  |     gc     |   consed   |  calls  |  sec/call  |  name  
+----------------------------------------------------------
+     0.089 |      0.000 |          0 |   5,200 |   0.000017 | POP-HEAP
+     0.023 |      0.000 |          0 |  14,133 |   0.000002 | MISPLACED-TILES
+     0.011 |      0.000 |          0 |   8,231 |   0.000001 | REHEAP-UP
+     0.009 |      0.000 |    786,288 |  14,134 |   0.000001 | MAKE-NODE
+     0.007 |      0.000 |     22,224 |   5,199 |   0.000001 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |          0 |       1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |          0 |       1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 |          0 |  14,133 |   0.000000 | RESULT
+     0.000 |      0.048 | 61,528,504 |       1 |   0.000000 | A*
+     0.000 |      0.000 |          0 |   8,231 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |          0 | 192,594 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |          0 |  57,538 |   0.000000 | PARENT
+     0.000 |      0.000 |          0 |   5,199 |   0.000000 | EXPAND
+     0.000 |      0.000 |  1,310,232 |  14,133 |   0.000000 | COPY-ARRAY
+----------------------------------------------------------
+     0.138 |      0.048 | 63,647,248 | 338,728 |            | Total
+
+estimated total profiling overhead: 1.12 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+--------------------------------------7.3--------------------------------------
+
+-------------A* - (print-solution (A* *PUZZLE-2* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed  |  calls |  sec/call  |  name  
+--------------------------------------------------------
+     0.014 |      0.000 |    65,496 |  1,127 |   0.000013 | COPY-ARRAY
+     0.010 |      0.000 |         0 |  3,996 |   0.000002 | PARENT
+     0.009 |      0.000 |         0 |    417 |   0.000021 | EXPAND
+     0.006 |      0.000 |         0 |    673 |   0.000008 | REHEAP-UP
+     0.002 |      0.000 |         0 |    418 |   0.000004 | POP-HEAP
+     0.000 |      0.000 |         0 |  9,022 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |         0 |  1,127 |   0.000000 | MANHATTAN-DISTANCE
+     0.000 |      0.000 |         0 |      1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |         0 |      1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 |         0 |  1,127 |   0.000000 | RESULT
+     0.000 |      0.000 | 5,091,304 |      1 |   0.000000 | A*
+     0.000 |      0.000 |         0 |    673 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |    65,528 |    417 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |    65,520 |  1,128 |   0.000000 | MAKE-NODE
+--------------------------------------------------------
+     0.040 |      0.000 | 5,287,848 | 20,128 |            | Total
+
+estimated total profiling overhead: 0.07 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------BFS - (print-solution (BFS *PUZZLE-2* *goal*))-------------
+  seconds  |     gc     |    consed   |  calls  |  sec/call  |  name  
+-----------------------------------------------------------
+     0.591 |      0.157 | 482,900,104 |       1 |   0.591165 | BFS
+     0.088 |      0.000 |           0 |  43,260 |   0.000002 | DEQUEUE
+     0.073 |      0.000 |           0 | 115,126 |   0.000001 | RESULT
+     0.060 |      0.000 |   4,127,272 | 115,126 |   0.000001 | COPY-ARRAY
+     0.045 |      0.000 |      65,536 |  58,390 |   0.000001 | ENQUEUE
+     0.026 |      0.000 |   4,980,384 |  43,260 |   0.000001 | POSSIBLE-ACTIONS
+     0.017 |      0.000 |     458,704 | 115,127 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |           0 |       1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |           0 |       1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.000 |           0 |  43,260 |   0.000000 | EXPAND
+-----------------------------------------------------------
+     0.902 |      0.157 | 492,532,000 | 533,552 |            | Total
+
+estimated total profiling overhead: 1.77 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------A* - (print-solution (A* *PUZZLE-3* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed  |  calls |  sec/call  |  name  
+--------------------------------------------------------
+     0.026 |      0.000 |         0 |  1,793 |   0.000015 | RESULT
+     0.022 |      0.000 |         0 |    673 |   0.000033 | POP-HEAP
+     0.012 |      0.000 |   393,176 |  1,793 |   0.000007 | MANHATTAN-DISTANCE
+     0.006 |      0.000 |         0 | 15,660 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |         0 |      1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |         0 |      1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 | 7,379,368 |      1 |   0.000000 | A*
+     0.000 |      0.000 |         0 |  1,071 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |         0 |  1,071 |   0.000000 | REHEAP-UP
+     0.000 |      0.000 |   131,056 |    672 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |   196,592 |  1,794 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |         0 |  6,866 |   0.000000 | PARENT
+     0.000 |      0.000 |   131,072 |    672 |   0.000000 | EXPAND
+     0.000 |      0.000 |   262,088 |  1,793 |   0.000000 | COPY-ARRAY
+--------------------------------------------------------
+     0.066 |      0.000 | 8,493,352 | 33,861 |            | Total
+
+estimated total profiling overhead: 0.11 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------BFS - (print-solution (BFS *PUZZLE-3* *goal*))-------------
+  seconds  |     gc     |     consed    |   calls   |  sec/call  |  name  
+---------------------------------------------------------------
+     1.442 |      0.263 | 1,231,055,744 |         1 |   1.442321 | BFS
+     0.188 |      0.000 |    16,640,912 |   307,209 |   0.000001 | COPY-ARRAY
+     0.159 |      0.000 |             0 |   307,209 |   0.000001 | RESULT
+     0.036 |      0.000 |    16,973,032 |   113,355 |   0.000000 | POSSIBLE-ACTIONS
+     0.020 |      0.000 |     2,293,504 |   307,210 |   0.000000 | MAKE-NODE
+     0.019 |      0.000 |             0 |   113,355 |   0.000000 | DEQUEUE
+     0.000 |      0.000 |             0 |         1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |             0 |   137,171 |   0.000000 | ENQUEUE
+     0.000 |      0.000 |             0 |         1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.000 |       262,144 |   113,355 |   0.000000 | EXPAND
+---------------------------------------------------------------
+     1.866 |      0.263 | 1,267,225,336 | 1,398,867 |            | Total
+
+estimated total profiling overhead: 4.64 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------A* - (print-solution (A* *PUZZLE-4* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed  |  calls |  sec/call  |  name  
+--------------------------------------------------------
+     0.031 |      0.000 |         0 |  1,049 |   0.000030 | REHEAP-UP
+     0.025 |      0.000 |         0 |  1,751 |   0.000014 | RESULT
+     0.013 |      0.000 |   326,616 |  1,751 |   0.000008 | MANHATTAN-DISTANCE
+     0.006 |      0.000 |         0 |  6,028 |   0.000001 | PARENT
+     0.005 |      0.000 |    65,536 |    644 |   0.000008 | EXPAND
+     0.000 |      0.000 |         0 |    645 |   0.000000 | POP-HEAP
+     0.000 |      0.000 |         0 |      1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |         0 |      1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 | 7,775,864 |      1 |   0.000000 | A*
+     0.000 |      0.000 |         0 |  1,049 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |         0 |    644 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |    65,536 |  1,752 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |         0 | 14,848 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |    65,520 |  1,751 |   0.000000 | COPY-ARRAY
+--------------------------------------------------------
+     0.081 |      0.000 | 8,299,072 | 31,915 |            | Total
+
+estimated total profiling overhead: 0.11 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------BFS - (print-solution (BFS *PUZZLE-4* *goal*))-------------
+  seconds  |     gc     |    consed   |  calls  |  sec/call  |  name  
+-----------------------------------------------------------
+     0.656 |      0.109 | 658,265,696 |       1 |   0.655941 | BFS
+     0.230 |      0.000 |   6,027,240 | 158,298 |   0.000001 | COPY-ARRAY
+     0.045 |      0.000 |           0 |  78,200 |   0.000001 | ENQUEUE
+     0.000 |      0.000 |           0 |       1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |           0 | 158,298 |   0.000000 | RESULT
+     0.000 |      0.000 |           0 |  59,054 |   0.000000 | DEQUEUE
+     0.000 |      0.000 |           0 |       1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.016 |   8,322,664 |  59,054 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |     458,704 | 158,299 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |     131,072 |  59,054 |   0.000000 | EXPAND
+-----------------------------------------------------------
+     0.931 |      0.125 | 673,205,376 | 730,260 |            | Total
+
+estimated total profiling overhead: 2.42 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------A* - (print-solution (A* *PUZZLE-5* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed   |  calls  |  sec/call  |  name  
+----------------------------------------------------------
+     0.077 |      0.000 |          0 |  67,512 |   0.000001 | NODE-TOTAL-COST
+     0.048 |      0.000 |          0 |   2,359 |   0.000020 | POP-HEAP
+     0.011 |      0.000 |          0 |   6,301 |   0.000002 | RESULT
+     0.006 |      0.000 |  1,048,480 |   6,301 |   0.000001 | MANHATTAN-DISTANCE
+     0.006 |      0.000 |    327,600 |   6,302 |   0.000001 | MAKE-NODE
+     0.000 |      0.000 |          0 |       1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |          0 |       1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.015 | 27,263,560 |       1 |   0.000000 | A*
+     0.000 |      0.000 |          0 |   3,656 |   0.000000 | PUSH-HEAP
+     0.000 |      0.000 |          0 |   3,656 |   0.000000 | REHEAP-UP
+     0.000 |      0.000 |    393,184 |   2,358 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |          0 |  28,790 |   0.000000 | PARENT
+     0.000 |      0.000 |    196,608 |   2,358 |   0.000000 | EXPAND
+     0.000 |      0.000 |    196,552 |   6,301 |   0.000000 | COPY-ARRAY
+----------------------------------------------------------
+     0.147 |      0.015 | 29,425,984 | 135,897 |            | Total
+
+estimated total profiling overhead: 0.45 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+  
+  
+-------------BFS - (print-solution (BFS *PUZZLE-5* *goal*))-------------
+  seconds  |     gc     |    consed   |   calls   |  sec/call  |  name  
+-------------------------------------------------------------
+     1.101 |      0.217 | 908,870,680 |         1 |   1.101186 | BFS
+     0.246 |      0.016 |  19,810,024 |   224,211 |   0.000001 | COPY-ARRAY
+     0.066 |      0.015 |  11,205,872 |    83,788 |   0.000001 | POSSIBLE-ACTIONS
+     0.045 |      0.000 |   8,868,352 |   224,212 |   0.000000 | MAKE-NODE
+     0.002 |      0.000 |      65,536 |   105,406 |   0.000000 | ENQUEUE
+     0.000 |      0.000 |           0 |         1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |  12,910,592 |   224,211 |   0.000000 | RESULT
+     0.000 |      0.000 |           0 |    83,788 |   0.000000 | DEQUEUE
+     0.000 |      0.000 |           0 |         1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.016 |  29,294,592 |    83,788 |   0.000000 | EXPAND
+-------------------------------------------------------------
+     1.460 |      0.264 | 991,025,648 | 1,029,407 |            | Total
+
+estimated total profiling overhead: 3.41 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------A* - (print-solution (A* *PUZZLE-6* *goal* #'manhattan-distance))-------------
+  seconds  |     gc     |   consed   |  calls |  sec/call  |  name  
+---------------------------------------------------------
+     0.018 |      0.000 |          0 |  7,337 |   0.000002 | PARENT
+     0.013 |      0.000 |    458,720 |  1,701 |   0.000008 | MANHATTAN-DISTANCE
+     0.007 |      0.000 |          0 | 15,454 |   0.000000 | NODE-TOTAL-COST
+     0.000 |      0.000 |    720,896 |    672 |   0.000000 | POP-HEAP
+     0.000 |      0.000 |          0 |      1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.000 |          0 |      1 |   0.000000 | MAKE-HEAP
+     0.000 |      0.000 |     65,536 |  1,701 |   0.000000 | RESULT
+     0.000 |      0.000 |  7,967,272 |      1 |   0.000000 | A*
+     0.000 |      0.000 |     65,536 |  1,015 |   0.000000 | PUSH-HEAP
+     0.000 |      0.016 |    327,680 |  1,015 |   0.000000 | REHEAP-UP
+     0.000 |      0.000 |     65,536 |    671 |   0.000000 | POSSIBLE-ACTIONS
+     0.000 |      0.000 |          0 |  1,702 |   0.000000 | MAKE-NODE
+     0.000 |      0.000 |    327,680 |    671 |   0.000000 | EXPAND
+     0.000 |      0.000 |    131,072 |  1,701 |   0.000000 | COPY-ARRAY
+---------------------------------------------------------
+     0.038 |      0.016 | 10,129,928 | 33,643 |            | Total
+
+estimated total profiling overhead: 0.11 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+-------------BFS - (print-solution (BFS *PUZZLE-6* *goal*))-------------
+  seconds  |     gc     |     consed    |   calls   |  sec/call  |  name  
+---------------------------------------------------------------
+     0.913 |      0.392 | 1,765,602,352 |         1 |   0.913033 | BFS
+     0.240 |      0.016 |    19,397,056 |   171,445 |   0.000001 | POSSIBLE-ACTIONS
+     0.238 |      0.015 |    42,062,040 |   456,926 |   0.000001 | COPY-ARRAY
+     0.059 |      0.000 |     3,211,296 |   177,438 |   0.000000 | ENQUEUE
+     0.000 |      0.000 |             0 |         1 |   0.000000 | PRINT-SOLUTION
+     0.000 |      0.016 |    57,081,032 |   456,926 |   0.000000 | RESULT
+     0.000 |      0.015 |        65,528 |   171,445 |   0.000000 | DEQUEUE
+     0.000 |      0.000 |             0 |         1 |   0.000000 | MAKE-QUEUE
+     0.000 |      0.016 |    20,639,392 |   456,927 |   0.000000 | MAKE-NODE
+     0.000 |      0.016 |   128,134,568 |   171,445 |   0.000000 | EXPAND
+---------------------------------------------------------------
+     1.450 |      0.486 | 2,036,193,264 | 2,062,555 |            | Total
+
+estimated total profiling overhead: 6.84 seconds
+overhead estimation parameters:
+  3.0e-8s/call, 3.3140002e-6s total profiling, 1.62e-6s internal profiling
+
+
+                     --Run Averages--
+A*    consed        expand     BFS  consed          expand
+2     5,287,848     417        2    492,532,000     43,260
+3     8,493,352     672        3    1,267,225,336   113,355
+4     8,299,072     644        4    673,205,376     59,054
+5     29,425,984    2,358      5    991,025,648     83,788
+6     10,129,928    671        6    2,036,193,264   171,445
+
+AVG   12,327,237    952.4      AVG  1,092,036,325   94,180
+
+
+
+
+
+
+
+
+
+

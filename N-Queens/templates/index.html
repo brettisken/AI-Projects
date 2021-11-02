@@ -1,0 +1,62 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+
+<form method="get">
+  <label for="size">Choose a board size:</label>
+  <select name="size" id="size" onchange="submit()">
+   <option disabled selected value>{{boards|first|length}}</option>
+	<option value= "8">8</option>
+    <option value="12">12</option>
+    <option value="16">16</option>
+  </select>
+  <br><br>
+  <div class="card">
+	<div class="card-body">
+		<H3 class="card-title">{% if boards %}
+								Restrict Domains
+								{% else %}
+								NO SOLUTION Try Again
+								{% endif %}</H3>
+		<input type="hidden" name="size" value="{{boards|first|length}}">
+		{% for x in boards %}
+			<div class="btn-group btn-group-toggle" data-toggle="buttons" style="padding: 6px">
+			<label class="btn btn-info" style="pointer-events: none"
+				<tt>Q{{forloop.counter}}:</tt>
+			</label>
+			
+		{% for x in boards %}
+		<label class="btn btn-secondary">
+			<input type="radio" name="queens[{{forloop.parentloop.counter}}]" id="queen{{forloop.parentloop.counter}}" value="{{forloop.counter}}">
+			<label for="queen{{forloop.parentloop.counter}}">{{forloop.counter}}</label>
+		</label>
+		{% endfor %}
+		</div>
+		{% endfor %}
+	</div>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
+{% if boards %}
+{% for x in boards %}
+<table>
+{% for y in x %}
+<tr>
+{% for z in y %}
+<td>{{z}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</br>
+</br>
+</table>
+{% endfor %}
+{% else %}
+<div><img src="/css/madqueen.gif"> </div>
+{% endif %}
+
+
+
+
+{% endblock %}
